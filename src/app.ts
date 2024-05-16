@@ -1,3 +1,4 @@
+import { envs } from "./config/envs";
 import { AppRoutes } from "./presentation/routes";
 import { Server } from "./presentation/server";
 
@@ -8,8 +9,8 @@ import { Server } from "./presentation/server";
 function main() {
 
   const server = new Server({
-    port: 3000, 
-    public_path: 'public',
+    port: envs.PORT, 
+    public_path: envs.PUBLIC_PATH,
     routes: AppRoutes.routes
   });
   server.start();
