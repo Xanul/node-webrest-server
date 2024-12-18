@@ -1,11 +1,14 @@
 import { Request, Response } from "express";
 import { prisma } from "../../data/postgres";
 import { CreateTodoDto, UpdateTodoDto } from "../domain/dtos";
+import { TodoRepository } from "../domain";
 
 export class TodosController {
 
   // Dependency Injection
-  constructor(){};
+  constructor(
+    private readonly todoRepository: TodoRepository
+  ){};
 
   // Get all todos from DB
   public getTodos = async (req:Request, res:Response) => {
